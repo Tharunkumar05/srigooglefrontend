@@ -8,7 +8,7 @@ import AdminMenu from '../../components/Layout/AdminMenu';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
 
-axios.defaults.baseURL = import.meta.env.REACT_APP_API;;
+const baseURL = import.meta.env.REACT_APP_API;
 axios.defaults.withCredentials = true;
 
 const UpdateProduct = () => {
@@ -25,7 +25,7 @@ const UpdateProduct = () => {
 
     const getSingleProduct = async()=>{
         try{
-            const {data} = await axios.get(`/api/v1/product/get-product/${params.slug}`)
+            const {data} = await axios.get(`${baseURL}/api/v1/product/get-product/${params.slug}`)
             setName(data.product.name);
             setDescription(data.product.description);
             setPhoto(data.product.photo)
@@ -45,7 +45,7 @@ const UpdateProduct = () => {
 
     const getAllCategory = async() =>{
         try{
-            const {data} = await axios.get('/api/v1/category/get-category');
+            const {data} = await axios.get(`${baseURL}/api/v1/category/get-category`);
             if(data?.success){
                 setCategories(data?.category);
             }
@@ -83,7 +83,7 @@ const UpdateProduct = () => {
 
     const handleDelete = async() =>{
         try{
-            const {data} = await axios.delete(`/api/v1/product/delete-product/${id}`);
+            const {data} = await axios.delete(`${baseURL}/api/v1/product/delete-product/${id}`);
             toast.success("Deleted Successfully");
             navigate('/dashboard/admin/products')
 
@@ -104,7 +104,7 @@ const UpdateProduct = () => {
             productData.append("photo",photo);
             productData.append("quantity",quantity);
             productData.append("category",category);
-            const {data} = await axios.put(`/api/v1/product/update-product/${id}`, productData )
+            const {data} = await axios.put(`${baseURL}/api/v1/product/update-product/${id}`, productData )
             if(data?.success){
                 toast.success('Product Updated Successfully')
                 navigate('/dashboard/admin/products')

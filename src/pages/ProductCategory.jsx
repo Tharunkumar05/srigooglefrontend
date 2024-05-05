@@ -5,7 +5,7 @@ import {Checkbox, Radio} from 'antd';
 import Prices from '../components/Prices';
 import {useNavigate} from 'react-router-dom';
 
-axios.defaults.baseURL = import.meta.env.REACT_APP_API;
+const baseURL = import.meta.env.REACT_APP_API;
 axios.defaults.withCredentials = true;
 
 const ProductCategory = () => {
@@ -19,7 +19,7 @@ const ProductCategory = () => {
 
     const getAllCategory = async () =>{
         try{
-            const {data} = await axios.get("/api/v1/category/get-category");
+            const {data} = await axios.get(`${baseURL}/api/v1/category/get-category`);
             if(data?.success){
                 setCategories(data?.category);
             }
@@ -32,7 +32,7 @@ const ProductCategory = () => {
 
     const getAllProducts = async() =>{
         try{  
-            const {data} = await axios.get('/api/v1/product/get-product');
+            const {data} = await axios.get(`${baseURL}/api/v1/product/get-product`);
             setProducts(data.products);
 
         }
@@ -66,7 +66,7 @@ const ProductCategory = () => {
     
     const filterProduct = async() =>{
         try{
-            const {data} = await axios.post('/api/v1/product/product-filters',{checked,radio})
+            const {data} = await axios.post(`${baseURL}/api/v1/product/product-filters`,{checked,radio})
             setProducts(data?.products)
         }catch(error){
             console.log(error);

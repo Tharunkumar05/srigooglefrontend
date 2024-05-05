@@ -4,7 +4,7 @@ import { useSearch } from '../context/Search';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
+const baseURL = "https://srigoooglebackend-2.onrender.com"
 axios.defaults.withCredentials = true;
 
 const Searchs = () => {

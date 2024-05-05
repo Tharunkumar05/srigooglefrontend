@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import {Link} from 'react-router-dom'
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = import.meta.env.REACT_APP_API;
+const baseURL = import.meta.env.REACT_APP_API;
 
 
 
@@ -17,7 +17,7 @@ const Contactdetails = () =>{
 
     const handleDelete = async(pId) =>{
         try{
-            const {data} = await axios.delete(`/api/v1/contact/delete-contact/${pId}`);
+            const {data} = await axios.delete(`${baseURL}/api/v1/contact/delete-contact/${pId}`);
             if(data.success){
                 toast.success(`Contact deleted Successfully`);
                 getAllContacts();
@@ -30,7 +30,7 @@ const Contactdetails = () =>{
 
     const getAllContacts = async() =>{
         try{
-            const {data} = await axios.get('/api/v1/contact/get-Contact');
+            const {data} = await axios.get(`${baseURL}/api/v1/contact/get-Contact`);
             setCont(data.contacts);
         }
         catch(error){

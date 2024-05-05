@@ -6,7 +6,7 @@ import axios from 'axios';
 import CategoryForm from '../../components/Form/CategoryForm';
 import {Modal} from 'antd';
 
-axios.defaults.baseURL = import.meta.env.REACT_APP_API;;
+const baseURL = import.meta.env.REACT_APP_API;
 axios.defaults.withCredentials = true;
 
 const CreateCategory = () =>{
@@ -19,7 +19,7 @@ const CreateCategory = () =>{
     const handleSubmit=async(e)=>{
         e.preventDefault();
         try{
-            const {data} = await axios.post('/api/v1/category/create-category',{name})
+            const {data} = await axios.post(`${baseURL}/api/v1/category/create-category`,{name})
             if(data?.success){
                 toast.success(`${name} is Created`);
                 getAllCategory();
@@ -36,7 +36,7 @@ const CreateCategory = () =>{
 
     const getAllCategory = async() =>{
         try{
-            const {data} = await axios.get('/api/v1/category/get-category');
+            const {data} = await axios.get(`${baseURL}/api/v1/category/get-category`);
             if(data?.success){
                 setCategories(data?.category);
             }
@@ -54,7 +54,7 @@ const CreateCategory = () =>{
     const handleUpdate = async(e) => {
         e.preventDefault();
         try{
-            const {data} = await axios.put(`/api/v1/category/update-category/${selected._id}`,
+            const {data} = await axios.put(`${baseURL}/api/v1/category/update-category/${selected._id}`,
                 {name:updateName}
             )
             if(data.success){
@@ -72,7 +72,7 @@ const CreateCategory = () =>{
 
     const handleDelete = async(pId) =>{
         try{
-            const {data} = await axios.delete(`/api/v1/category/delete-category/${pId}`)
+            const {data} = await axios.delete(`${baseURL}/api/v1/category/delete-category/${pId}`)
             if(data.success){
                 toast.success(`Brand deleted Successfully`);
                 getAllCategory();

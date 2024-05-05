@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 import '../../stylesheets/AuthStyles.css'
 
 // Set the base URL for axios
-axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
+const baseURL = "https://srigoooglebackend-2.onrender.com"
 axios.defaults.withCredentials = true;
 
 const Register = () => {
@@ -20,7 +20,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('/api/v1/auth/register', { name, email, password, answer });
+            const res = await axios.post(`${baseURL}/api/v1/auth/register`, { name, email, password, answer });
             if (res && res.data.success) {
                 toast.success(res.data.message);
                 // console.log(res.data.message)

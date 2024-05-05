@@ -5,7 +5,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import {Link} from 'react-router-dom'
 
-axios.defaults.baseURL = import.meta.env.REACT_APP_API;;
+const baseURL = import.meta.env.REACT_APP_API;
 axios.defaults.withCredentials = true;
 
 const Products = () => {
@@ -13,7 +13,7 @@ const Products = () => {
 
     const getAllProducts = async()=>{
         try{
-            const {data} = await axios.get('/api/v1/product/get-product');
+            const {data} = await axios.get(`${baseURL}/api/v1/product/get-product`);
             setProduct(data.products);
             // console.log(data.products.photo);
         }

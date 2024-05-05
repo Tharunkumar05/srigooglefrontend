@@ -4,7 +4,7 @@ import axios from 'axios';
 import {useParams, useNavigate} from "react-router-dom"
 
 
-axios.defaults.baseURL = import.meta.env.REACT_APP_API;
+const baseURL = import.meta.env.REACT_APP_API;
 axios.defaults.withCredentials = true;
 
 const ProductDetails = () =>{
@@ -18,7 +18,7 @@ const ProductDetails = () =>{
 
     const getProduct = async() =>{
         try{
-            const {data} = await axios.get(`/api/v1/product/get-product/${params.slug}`)
+            const {data} = await axios.get(`${baseURL}/api/v1/product/get-product/${params.slug}`)
             setproducts(data?.product)
         }catch(error){
             console.log(error);

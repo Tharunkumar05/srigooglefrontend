@@ -7,7 +7,7 @@ import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
 
 
-axios.defaults.baseURL = import.meta.env.REACT_APP_API;
+const baseURL = import.meta.env.REACT_APP_API;
 axios.defaults.withCredentials = true;
 
 export default function Contact() {
@@ -22,7 +22,7 @@ export default function Contact() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try{
-      const {data} = await axios.post('/api/v1/contact/submission', {firstname, lastname, email, phone, qns, optional});
+      const {data} = await axios.post(`${baseURL}/api/v1/contact/submission`, {firstname, lastname, email, phone, qns, optional});
       if(data?.success){
         toast.success("Submitted Successfully");
       }

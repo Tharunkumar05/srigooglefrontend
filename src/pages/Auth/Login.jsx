@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import '../../stylesheets/AuthStyles.css';
 import { useAuth } from '../../context/Auth';
 
-axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
+const baseURL = "https://srigoooglebackend-2.onrender.com"
 axios.defaults.withCredentials = true;
 
 const Login = () => {
@@ -18,7 +18,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('/api/v1/auth/login', {email, password });
+            const res = await axios.post(`${baseURL}/api/v1/auth/login`, {email, password });
             if (res && res.data.success) {
                 toast.success(res.data.message);
                 setAuth({
