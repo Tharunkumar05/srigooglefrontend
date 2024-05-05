@@ -8,6 +8,9 @@ import AdminMenu from '../../components/Layout/AdminMenu';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
 
+axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
+axios.defaults.withCredentials = true;
+
 const UpdateProduct = () => {
     const [categories, setCategories] = useState([]);
     const [category,setCategory] = useState("");

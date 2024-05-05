@@ -5,6 +5,9 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import {Link} from 'react-router-dom'
 
+axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
+axios.defaults.withCredentials = true;
+
 const Products = () => {
     const[products, setProduct] =useState([])
 

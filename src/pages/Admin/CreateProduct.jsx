@@ -8,6 +8,9 @@ import {Select} from 'antd';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
 
+axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
+axios.defaults.withCredentials = true;
+
 const {Option} = Select 
 
 const CreateProduct = () =>{

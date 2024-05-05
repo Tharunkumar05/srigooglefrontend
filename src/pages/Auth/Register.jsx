@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 import '../../stylesheets/AuthStyles.css'
 
 // Set the base URL for axios
-axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
 axios.defaults.withCredentials = true;
 
 const Register = () => {

@@ -3,6 +3,10 @@ import Layout from './../components/Layout/Layout';
 import axios from 'axios';
 import {useParams, useNavigate} from "react-router-dom"
 
+
+axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
+axios.defaults.withCredentials = true;
+
 const ProductDetails = () =>{
     const params = useParams();
     const [products, setproducts] = useState({})

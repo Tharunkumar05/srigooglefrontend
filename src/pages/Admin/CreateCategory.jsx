@@ -7,6 +7,7 @@ import CategoryForm from '../../components/Form/CategoryForm';
 import {Modal} from 'antd';
 
 axios.defaults.withCredentials = true;
+axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
 
 const CreateCategory = () =>{
     const [categories,setCategories]= useState([]);

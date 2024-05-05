@@ -5,6 +5,9 @@ import {Checkbox, Radio} from 'antd';
 import Prices from '../components/Prices';
 import {useNavigate} from 'react-router-dom';
 
+axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
+axios.defaults.withCredentials = true;
+
 const ProductCategory = () => {
     const navigate = useNavigate();
     const [products,setProducts] = useState([]);

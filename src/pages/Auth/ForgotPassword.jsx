@@ -5,6 +5,8 @@ import toast from 'react-hot-toast';
 import "../../stylesheets/AuthStyles.css";
 import Layout from '../../components/Layout/Layout';
 
+axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
+axios.defaults.withCredentials = true;
 
 const ForgotPassword =()=>{
     const [email, setEmail] = useState("");

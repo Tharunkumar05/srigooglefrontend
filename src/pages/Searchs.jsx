@@ -3,6 +3,10 @@ import Layout from '../components/Layout/Layout';
 import { useSearch } from '../context/Search';
 import { useNavigate } from 'react-router-dom';
 
+
+axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
+axios.defaults.withCredentials = true;
+
 const Searchs = () => {
     const [values, setValues] = useSearch();
     const navigate = useNavigate();

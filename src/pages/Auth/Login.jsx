@@ -6,6 +6,9 @@ import toast from 'react-hot-toast';
 import '../../stylesheets/AuthStyles.css';
 import { useAuth } from '../../context/Auth';
 
+axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
+axios.defaults.withCredentials = true;
+
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
