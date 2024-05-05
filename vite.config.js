@@ -8,4 +8,9 @@ export default defineConfig({
   plugins: [react(),
     envCompatible()
   ],
+  server:{
+    host: true,
+    strictPort: true,
+    port:8080,
+  },
 })
