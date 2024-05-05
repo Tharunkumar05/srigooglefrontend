@@ -8,6 +8,7 @@ import { AuthProvider } from './context/Auth.jsx'
 import { SearchProvider } from './context/Search.jsx'
 import firebase from 'firebase/compat/app'
 import { initializeApp } from "firebase/app";
+import axios from 'axios';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 AOS.init();
