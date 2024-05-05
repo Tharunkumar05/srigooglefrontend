@@ -6,8 +6,8 @@ import axios from 'axios';
 import CategoryForm from '../../components/Form/CategoryForm';
 import {Modal} from 'antd';
 
+axios.defaults.baseURL = import.meta.env.REACT_APP_API;;
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
 
 const CreateCategory = () =>{
     const [categories,setCategories]= useState([]);

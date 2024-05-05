@@ -5,7 +5,7 @@ import {Checkbox, Radio} from 'antd';
 import Prices from '../components/Prices';
 import {useNavigate} from 'react-router-dom';
 
-axios.defaults.baseURL = "https://srigoooglebackend-1.onrender.com"
+axios.defaults.baseURL = import.meta.env.REACT_APP_API;
 axios.defaults.withCredentials = true;
 
 const ProductCategory = () => {
@@ -25,7 +25,7 @@ const ProductCategory = () => {
             }
         }
         catch(error){
-            consolr.log(error);
+            console.log(error);
             // toast.error("Something went wrong in getting category");
         }
     }

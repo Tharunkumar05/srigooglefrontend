@@ -5,6 +5,10 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import {Link} from 'react-router-dom'
 
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = import.meta.env.REACT_APP_API;
+
+
 
 const Contactdetails = () =>{
 

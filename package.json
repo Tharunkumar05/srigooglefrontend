@@ -1,7 +1,7 @@
 {
   "name": "client",
   "private": true,
-  "proxy": "https://srigoooglebackend-1.onrender.com",
+  "proxy": "https://srigoooglebackend-2.onrender.com",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

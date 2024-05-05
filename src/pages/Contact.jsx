@@ -6,6 +6,10 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
 
+
+axios.defaults.baseURL = import.meta.env.REACT_APP_API;
+axios.defaults.withCredentials = true;
+
 export default function Contact() {
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
