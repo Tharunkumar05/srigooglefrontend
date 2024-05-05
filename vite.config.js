@@ -7,11 +7,6 @@ export default defineConfig({
   envPrefix: "REACT_APP_",
   plugins: [react(),
     envCompatible(),
-    require('rollup-plugin-replace')({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    require('rollup-plugin-commonjs')(),
-    require('rollup-plugin-terser')(),
   ],
   server:{
     host: true,
